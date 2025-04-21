@@ -76,56 +76,44 @@
   }
 }
 
-/* Стили для фотопленки */
-.film-strip-container {
-  background-color: #121212;
+/* Стили для галереи изображений */
+.gallery-container {
+  position: relative;
   overflow-x: hidden;
-  position: relative;
-  padding-top: 3rem;
-  padding-bottom: 5rem;
 }
 
-.film-strip-container::before,
-.film-strip-container::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 30px;
-  z-index: 10;
+.gallery-item {
+  will-change: transform, opacity;
 }
 
-.film-strip-container::before {
-  top: 0;
-  background: linear-gradient(to bottom, #000000 0%, transparent 100%);
+.gallery-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.film-strip-container::after {
-  bottom: 0;
-  background: linear-gradient(to top, #000000 0%, transparent 100%);
-}
-
-.film-frame {
-  max-width: 90%;
-  margin: 2rem auto;
-  position: relative;
-}
-
-.film-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: all 0.5s ease;
-}
-
-.film-end {
-  font-family: monospace;
-  letter-spacing: 0.2em;
-  opacity: 0.8;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-}
-
-/* Добавление градиента для красного цвета */
+/* Стиль для красного цвета */
 .text-gradual-red {
   color: #8B0000;
+}
+
+/* Плавное появление элементов */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Стилизация скролла */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
