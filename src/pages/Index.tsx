@@ -1,29 +1,29 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { PhotoCarousel } from "@/components/PhotoCarousel";
+import { FilmStripGallery } from "@/components/FilmStripGallery";
 
 const Index = () => {
   const images = [
     {
-      src: "https://cdn.poehali.dev/files/39d40f40-66d5-4730-b9f7-106c2d826d4d.png",
+      src: "https://cdn.poehali.dev/files/c15926cf-59c8-42c4-aad2-c5fadf0b3c63.png",
       alt: "Выпуск 2025"
     },
     {
-      src: "https://cdn.poehali.dev/files/b9fd58e8-e55c-45f8-a28c-75b045cb574b.png",
+      src: "https://cdn.poehali.dev/files/c3cf702a-3b6f-46ee-9c96-c50ba0472b85.png",
       alt: "Под алыми парусами"
     },
     {
-      src: "https://cdn.poehali.dev/files/7feb8edd-b83c-43d6-9a7b-b12d6266d371.png",
+      src: "https://cdn.poehali.dev/files/44173f14-199d-40d6-91dd-409695d8a0fa.png",
       alt: "Фотоколлаж выпускников"
     },
     {
-      src: "https://cdn.poehali.dev/files/d5bd4a17-4470-47b4-8857-3168d53f5425.png",
+      src: "https://cdn.poehali.dev/files/ff7a158d-984c-4b0f-8242-ded586586a18.png",
       alt: "Коллаж выпускников 2025"
     }
   ];
 
   return (
-    <ScrollArea className="h-screen w-full">
-      <PhotoCarousel images={images} />
+    <ScrollArea className="h-screen w-full bg-black">
+      <FilmStripGallery images={images} />
     </ScrollArea>
   );
 };
