@@ -1,67 +1,29 @@
-import { useRef } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import GallerySection from "@/components/GallerySection";
-import InvitationSection from "@/components/InvitationSection";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { PhotoCarousel } from "@/components/PhotoCarousel";
 
 const Index = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const galleryRef = useRef<HTMLDivElement>(null);
-  const invitationRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
-
-  const scrollToSection = (section: string) => {
-    if (section === "hero" && heroRef.current) {
-      heroRef.current.scrollIntoView({ behavior: "smooth" });
-    } else if (section === "gallery" && galleryRef.current) {
-      galleryRef.current.scrollIntoView({ behavior: "smooth" });
-    } else if (section === "invitation" && invitationRef.current) {
-      invitationRef.current.scrollIntoView({ behavior: "smooth" });
-    } else if (section === "contact" && contactRef.current) {
-      contactRef.current.scrollIntoView({ behavior: "smooth" });
+  const images = [
+    {
+      src: "https://cdn.poehali.dev/files/39d40f40-66d5-4730-b9f7-106c2d826d4d.png",
+      alt: "Выпуск 2025"
+    },
+    {
+      src: "https://cdn.poehali.dev/files/b9fd58e8-e55c-45f8-a28c-75b045cb574b.png",
+      alt: "Под алыми парусами"
+    },
+    {
+      src: "https://cdn.poehali.dev/files/7feb8edd-b83c-43d6-9a7b-b12d6266d371.png",
+      alt: "Фотоколлаж выпускников"
+    },
+    {
+      src: "https://cdn.poehali.dev/files/d5bd4a17-4470-47b4-8857-3168d53f5425.png",
+      alt: "Коллаж выпускников 2025"
     }
-  };
-
-  const scrollToGallery = () => {
-    if (galleryRef.current) {
-      galleryRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  ];
 
   return (
     <ScrollArea className="h-screen w-full">
-      <Navbar onScrollToSection={scrollToSection} />
-      
-      <div ref={heroRef}>
-        <Hero onScrollToGallery={scrollToGallery} />
-      </div>
-      
-      <div ref={galleryRef}>
-        <GallerySection />
-      </div>
-      
-      <div ref={invitationRef}>
-        <InvitationSection />
-      </div>
-      
-      <div ref={contactRef} className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Свяжитесь с нами</h2>
-          <p className="text-lg mb-4">
-            Если у вас есть вопросы или предложения, пожалуйста, свяжитесь с нами.
-          </p>
-          <p className="text-xl font-semibold text-gradual-red">
-            выпуск2025@школа.рф
-          </p>
-        </div>
-      </div>
-      
-      <footer className="py-6 bg-gradual-dark text-white">
-        <div className="container mx-auto px-4 text-center">
-          <p>© Выпуск 2025. Все права защищены.</p>
-        </div>
-      </footer>
+      <PhotoCarousel images={images} />
     </ScrollArea>
   );
 };
